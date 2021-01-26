@@ -1,0 +1,17 @@
+# Project (short name)
+project         = "bb"
+
+# Project (long name)
+project_long    = "binbash"
+
+# AWS Region for DR replicatin (required by the backend but also used for other resources)
+region_secondary      = "us-east-2"
+
+# Account IDs
+shared_account_id     = "111111111111"
+
+# Hashicorp Vault private API endpoint
+vault_address = "https://vault-cluster.private.vault.XXXX.aws.hashicorp.cloud:8200"
+
+# Hashicorp Vault token
+vault_token = "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
