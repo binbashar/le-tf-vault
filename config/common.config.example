@@ -14,4 +14,19 @@ shared_account_id     = "111111111111"
 vault_address = "https://vault-cluster.private.vault.XXXX.aws.hashicorp.cloud:8200"
 
 # Hashicorp Vault token
-vault_token = "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+#
+# Vault token that will be used by Terraform to authenticate.
+# 1st exec: admin token from https://portal.cloud.hashicorp.com/.
+# Following execs:
+#   1- Generate GitHub personal access token: https://github.com/settings/tokens
+#   2- Click “Generate new token“
+#   3- Choose one permission that is required: admin:org read:org
+#   4- vault login -method=github
+#   5- input your GH personal access token
+#   6- Set /config/common.config -> vault_token="XXXXXXXXXXXXXXXXXXXXXXX"
+#
+#   NOTE: the admin token from https://portal.cloud.hashicorp.com/ will always work
+#   but it's use is defavoured for the nominated GH personal access token for
+#   security audit trail reasons
+#
+vault_token = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
