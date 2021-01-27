@@ -10,7 +10,7 @@
 # Leverage Reference Architecture: Terraform Vault
 
 ## Overview
-This repository contains all Terraform configuration files used to create Binbash Leverage Reference Vault 
+This repository contains all Terraform configuration files used to create Binbash Leverage Reference Vault
 Solutions Architecture.
 
 ## Documentation
