@@ -29,6 +29,6 @@ terraform {
   }
 
   backend "s3" {
-    key = "vault/auth-backend/terraform.tfstate"
+    key = "vault/security-policy-mappings/terraform.tfstate"
   }
 }

@@ -34,6 +34,6 @@ terraform {
   }
 
   backend "s3" {
-    key = "vault/vault_mounts/terraform.tfstate"
+    key = "vault/base-settings/terraform.tfstate"
   }
 }
