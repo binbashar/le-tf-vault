@@ -16,15 +16,15 @@ provider "aws" {
 }
 
 provider "vault" {
-  address     = var.vault_address
-  token       = var.vault_token
+  address = var.vault_address
+  token   = var.vault_token
 }
 
 terraform {
   required_version = ">= 0.14.2"
 
   required_providers {
-    aws = "~> 3.0"
+    aws   = "~> 3.0"
     vault = "~> 2.18.0"
   }
 
