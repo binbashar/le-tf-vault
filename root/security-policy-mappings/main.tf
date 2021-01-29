@@ -1,7 +1,7 @@
 resource "vault_github_auth_backend" "organization" {
-  description   = "github token based credentials"
-  organization  = "binbashar"
-  token_type    = "default"
+  description  = "github token based credentials"
+  organization = "binbashar"
+  token_type   = "default"
 }
 
 resource "vault_github_team" "ref_architecture_admin" {
