@@ -7,6 +7,13 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v0.0.2"></a>
+## [v0.0.2] - 2021-01-29
+
+- BBL-262 | make pre-commit w/ terraform format applied
+- BBL-262 | repo structure and naming convetion updated following binbash leverage standards
+
+
 <a name="v0.0.1"></a>
 ## v0.0.1 - 2021-01-27
 
@@ -26,4 +33,5 @@ All notable changes to this project will be documented in this file.
 - BBL-262 | le-tf-vault initial commit
 
 
-[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.0.2...HEAD
+[v0.0.2]: https://github.com/binbashar/le-tf-vault/compare/v0.0.1...v0.0.2
