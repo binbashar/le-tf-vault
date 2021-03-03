@@ -16,6 +16,44 @@ Solutions Architecture.
 ## Documentation
 Check out the [Binbash Leverage Reference Architecture Official Documentation](https://leverage.binbash.com.ar).
 
+
+### Ref Links
+
+#### Vault Terraform Provider
+- https://registry.terraform.io/providers/hashicorp/vault/latest/docs
+- https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/github_team
+- https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/policy
+
+#### Vault Docs
+- https://www.vaultproject.io/docs/secrets/kv
+- https://www.vaultproject.io/docs/configuration/ui
+
+#### Vault Tutorials
+- https://learn.hashicorp.com/tutorials/vault/getting-started-ui
+- https://learn.hashicorp.com/tutorials/vault/getting-started-intro-ui
+
+#### Useful commands
+
+```
+$ vault secrets list -detailed
+$ vault kv list secrets/
+
+$ vault kv put secrets/foo bar=baz
+Success! Data written to: secrets/foo
+
+$ vault kv list secrets/
+Keys
+----
+foo
+
+$ vault kv get secrets/foo
+=== Data ===
+Key    Value
+---    -----
+bar    baz
+Vault UI
+```
+
 ---
 # Release Management
 ### CircleCi PR auto-release job

@@ -95,6 +95,7 @@ Thumbs.db
 #
 *secrets.dec*
 *secrets.dec.*
+*.json
 config/common.config
 #
 # Scripts and Makefiles
