@@ -25,7 +25,7 @@ Check out the [Binbash Leverage Reference Architecture Official Documentation](h
 - https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/policy
 
 #### Vault Docs
-- https://www.vaultproject.io/docs/secrets/kv 
+- https://www.vaultproject.io/docs/secrets/kv
 - https://www.vaultproject.io/docs/configuration/ui
 
 #### Vault Tutorials
