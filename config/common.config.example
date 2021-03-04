@@ -20,7 +20,7 @@ vault_address = "https://vault-cluster.private.vault.XXXX.aws.hashicorp.cloud:82
 # Following execs:
 #   1- Generate GitHub personal access token: https://github.com/settings/tokens
 #   2- Click “Generate new token“
-#   3- Choose one permission that is required: admin:org read:org
+#   3- Choose one permission that is required: read:org
 #   4- vault login -method=github
 #   5- input your GH personal access token
 #   6- Set /config/common.config -> vault_token="XXXXXXXXXXXXXXXXXXXXXXX"
