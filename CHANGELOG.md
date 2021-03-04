@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v0.0.5"></a>
+## [v0.0.5] - 2021-03-04
+
+- BBL-24 | fixing inline comment
+
+
 <a name="v0.0.4"></a>
 ## [v0.0.4] - 2021-03-04
 
@@ -49,7 +55,8 @@ All notable changes to this project will be documented in this file.
 - BBL-262 | le-tf-vault initial commit
 
 
-[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.0.4...HEAD
+[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.0.5...HEAD
+[v0.0.5]: https://github.com/binbashar/le-tf-vault/compare/v0.0.4...v0.0.5
 [v0.0.4]: https://github.com/binbashar/le-tf-vault/compare/v0.0.3...v0.0.4
 [v0.0.3]: https://github.com/binbashar/le-tf-vault/compare/v0.0.2...v0.0.3
 [v0.0.2]: https://github.com/binbashar/le-tf-vault/compare/v0.0.1...v0.0.2
