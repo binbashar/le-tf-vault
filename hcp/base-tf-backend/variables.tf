@@ -65,3 +65,13 @@ variable "shared_account_id" {
   type        = string
   description = "Account: Shared Resources"
 }
+
+variable "vault_address" {
+  type        = string
+  description = "Hashicorp vault api endpoint address"
+}
+
+variable "vault_token" {
+  type        = string
+  description = "Hashicorp vault admin token"
+}
