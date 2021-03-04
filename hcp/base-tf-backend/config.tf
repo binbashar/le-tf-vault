@@ -22,6 +22,7 @@ terraform {
     aws = "~> 3.0"
   }
 
+  # https://leverage.binbash.com.ar/user-guide/base-workflow/repo-le-tf-infra-aws-tf-state/
   backend "s3" {
     key = "vault/tf-backend/terraform.tfstate"
   }

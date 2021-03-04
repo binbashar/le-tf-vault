@@ -12,7 +12,10 @@ help:
 	@echo '      vault login -method=github '
 	@echo ''
 	@echo '  - Run `make get-{SERVICE_NAME} to retrieve from Vault the configuration of the given {SERVICE_NAME} as a JSON file`'
+	@echo '    eg: `make get-le-tf-infra-aws-appsdevstg-databases-mysql`'
+	@echo ''
 	@echo '  - Run `make put-{SERVICE_NAME} to update the configuration of the given {SERVICE_NAME} on Vault`'
+	@echo '    eg: `make put-le-tf-infra-aws-appsdevstg-databases-mysql`'
 	@echo ''
 
 list:
