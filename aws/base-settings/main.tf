@@ -5,7 +5,7 @@ resource "vault_mount" "secrets" {
 }
 
 resource "vault_audit" "default" {
-  type    = "file"
+  type = "file"
   options = {
     file_path = "/var/log/vault/audit.log"
   }
