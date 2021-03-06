@@ -18,10 +18,10 @@ provider "aws" {
 provider "vault" {
   address = var.vault_address
 
-  /*
-  Vault token that will be used by Terraform to authenticate.
-  admin token from https://portal.cloud.hashicorp.com/.
-  */
+  #
+  # The token to be used for authenticating with Vault. Since this is a
+  # self-hosted Vault, you will most likely get it via `vault login`.
+  #
   token = var.vault_token
 }
 
