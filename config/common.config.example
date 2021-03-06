@@ -11,6 +11,10 @@ region_secondary      = "us-east-2"
 shared_account_id     = "111111111111"
 
 # Hashicorp Vault private API endpoint
+#
+# If you are on HCP, you can get this from the Admin UI. Otherwise, it will
+# depend on how you set up DNS, TLS and port settings for your self-hosted
+# installation.
 vault_address = "https://vault.aws.binbash.com.ar:8200"
 
 # Hashicorp Vault token
