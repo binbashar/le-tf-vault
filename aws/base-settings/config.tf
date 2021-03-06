@@ -18,10 +18,7 @@ provider "aws" {
 provider "vault" {
   address = var.vault_address
 
-  #
-  # The token to be used for authenticating with Vault. Since this is a
-  # self-hosted Vault, you will most likely get it via `vault login`.
-  #
+  # Refer to this for instructions: https://github.com/binbashar/le-tf-vault/blob/master/config/common.config.example#L18
   token = var.vault_token
 }
 

@@ -16,9 +16,12 @@ vault_address = "https://vault.aws.binbash.com.ar:8200"
 # Hashicorp Vault token
 #
 # Vault token that will be used by Terraform to perform calls to Vault API.
-# Since this is self-hosted Vault installation that integrates with Github for
+# During the initial setup, you will have to use a root token. If you are
+# using a self-hosted installation you will get such token after you initialize
+# Vault; if you are using Hashicorp Cloud Platform you can get the token from
+# HCP Admin UI.
+# After the initial setup, and since we integrate Vault to Github for
 # authentication, you will have to follow these steps:
-#
 #   1- Generate a GitHub Personal Access Token: https://github.com/settings/tokens
 #   2- Click “Generate new token“
 #   3- Under scopes, only select "read:org", under "admin:org"
