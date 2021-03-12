@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v0.0.8"></a>
+## [v0.0.8] - 2021-03-12
+
+- Create Vault's Kubernetes Authentication and refactor Github/policies… ([#7](https://github.com/binbashar/le-tf-vault/issues/7))
+
+
 <a name="v0.0.7"></a>
 ## [v0.0.7] - 2021-03-07
 
@@ -67,7 +73,8 @@ All notable changes to this project will be documented in this file.
 - BBL-262 | le-tf-vault initial commit
 
 
-[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.0.7...HEAD
+[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.0.8...HEAD
+[v0.0.8]: https://github.com/binbashar/le-tf-vault/compare/v0.0.7...v0.0.8
 [v0.0.7]: https://github.com/binbashar/le-tf-vault/compare/v0.0.6...v0.0.7
 [v0.0.6]: https://github.com/binbashar/le-tf-vault/compare/v0.0.5...v0.0.6
 [v0.0.5]: https://github.com/binbashar/le-tf-vault/compare/v0.0.4...v0.0.5
