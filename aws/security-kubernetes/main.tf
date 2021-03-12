@@ -16,9 +16,9 @@ resource "vault_auth_backend" "kubernetes" {
 # Configure Kubernetes Authentication: EKS DevStg
 #
 resource "vault_kubernetes_auth_backend_config" "eks_devstg" {
-  backend            = vault_auth_backend.kubernetes.path
+  backend = vault_auth_backend.kubernetes.path
   # NOTE: replace this with your own Kubernetes host
-  kubernetes_host    = "https://ABCDEFGHIJK1234567890.gr7.us-east-1.eks.amazonaws.com"
+  kubernetes_host = "https://ABCDEFGHIJK1234567890.gr7.us-east-1.eks.amazonaws.com"
   # NOTE: replace this with the CA certificate that belongs to your Kubernetes
   kubernetes_ca_cert = <<EOT
 -----BEGIN CERTIFICATE-----
@@ -54,6 +54,6 @@ resource "vault_kubernetes_auth_backend_role" "eks_devstg_demoapps_sockshop_read
   role_name                        = "demoapps_sockshop_readonly"
   bound_service_account_names      = ["*"]
   bound_service_account_namespaces = ["default", "sock-shop"]
-  token_ttl                        = 3600 * 6  # in seconds
+  token_ttl                        = 3600 * 6 # in seconds
   token_policies                   = ["demoapps_sockshop_readonly"]
 }
