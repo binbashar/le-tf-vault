@@ -8,13 +8,6 @@ provider "aws" {
   shared_credentials_file = "~/.aws/${var.project}/config"
 }
 
-provider "aws" {
-  alias                   = "secondary_region"
-  region                  = var.region_secondary
-  profile                 = var.profile
-  shared_credentials_file = "~/.aws/${var.project}/config"
-}
-
 provider "vault" {
   address = var.vault_address
   token   = var.vault_token
@@ -29,6 +22,6 @@ terraform {
   }
 
   backend "s3" {
-    key = "aws/security-policy-mappings/terraform.tfstate"
+    key = "aws/security-kubernetes/terraform.tfstate"
   }
 }

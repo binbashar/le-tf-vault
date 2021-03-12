@@ -1,4 +1,0 @@
-path "secrets/*"
-{
-  capabilities = ["list"]
-}
