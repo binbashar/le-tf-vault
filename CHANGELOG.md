@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v0.0.9"></a>
+## [v0.0.9] - 2021-03-12
+
+- Add missing policies ([#8](https://github.com/binbashar/le-tf-vault/issues/8))
+
+
 <a name="v0.0.8"></a>
 ## [v0.0.8] - 2021-03-12
 
@@ -73,7 +79,8 @@ All notable changes to this project will be documented in this file.
 - BBL-262 | le-tf-vault initial commit
 
 
-[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.0.8...HEAD
+[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.0.9...HEAD
+[v0.0.9]: https://github.com/binbashar/le-tf-vault/compare/v0.0.8...v0.0.9
 [v0.0.8]: https://github.com/binbashar/le-tf-vault/compare/v0.0.7...v0.0.8
 [v0.0.7]: https://github.com/binbashar/le-tf-vault/compare/v0.0.6...v0.0.7
 [v0.0.6]: https://github.com/binbashar/le-tf-vault/compare/v0.0.5...v0.0.6
