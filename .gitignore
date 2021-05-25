@@ -114,6 +114,7 @@ config/common.config
 *plan.json
 *state.json
 *plan.save
+terraform.tfvars
 #
 # Terratest
 #

@@ -76,3 +76,21 @@ variable "vault_token" {
   type        = string
   description = "Hashicorp vault admin token"
 }
+
+#=============================#
+# Kubernetes Auth Config      #
+#=============================#
+variable "kubernetes_auth_host" {
+  type        = string
+  description = "Kubernetes host"
+}
+
+variable "kubernetes_auth_ca_cert" {
+  type        = string
+  description = "Kubernetes CA certificate"
+}
+
+variable "kubernetes_auth_token_reviewer_jwt" {
+  type        = string
+  description = "Kubernetes Token Reviewer API JWT"
+}
