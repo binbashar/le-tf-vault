@@ -1,11 +1,4 @@
 #
-# Highly sensitive secrets are retrieved from Vault
-#
-data "vault_generic_secret" "eks_devstg" {
-  path = "secrets/le-tf-vault/hcp/security-kubernetes"
-}
-
-#
 # Enable Kubernetes Authentication
 #
 resource "vault_auth_backend" "kubernetes" {
@@ -17,33 +10,25 @@ resource "vault_auth_backend" "kubernetes" {
 #
 resource "vault_kubernetes_auth_backend_config" "eks_devstg" {
   backend = vault_auth_backend.kubernetes.path
-  # NOTE: replace this with your own Kubernetes host
-  kubernetes_host = "https://ABCDEFGHIJK1234567890.gr7.us-east-1.eks.amazonaws.com"
-  # NOTE: replace this with the CA certificate that belongs to your Kubernetes
-  kubernetes_ca_cert = <<EOT
------BEGIN CERTIFICATE-----
-MIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl
-cm5ldGVzMB4XDTIxMDMxMTExMTIyNVoXDTMxMDMwOTExMTIyNVowFTETMBEGA1UE
-AxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMzk
-4ee+XJqofktLErt9tu2QGOefHBL+uAsHE53u0B7Y8KBEXtDn9DIOUUQ/p1bb/gvi
-Bfk2I3WMT8uE9AIv7PMhz6M5gvvaXQp57bDDfWCX+XaLs4CVPehWGVHXc6szcDuv
-oNhp7LeVF+VoITf/dI+BMQC2FjIKMFS0JsEsnew255Opopb3fwwueN6TRhJ/M4Wu
-uoieqpCEqtq47niNVw8DpiwDMGTeU40GfHgL/L7M2qgFd+uSRyM7FmnkNarquvDD
-cm5ldGVzMB4XDTIxMDMxMTExMTIyNVoXDTMxMDMwOTExMTIyNVowFTETMBEGA1UE
-AxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMzk
-4ee+XJqofktLErt9tu2QGOefHBL+uAsHE53u0B7Y8KBEXtDn9DIOUUQ/p1bb/gvi
-Bfk2I3WMT8uE9AIv7PMhz6M5gvvaXQp57bDDfWCX+XaLs4CVPehWGVHXc6szcDuv
-oNhp7LeVF+VoITf/dI+BMQC2FjIKMFS0JsEsnew255Opopb3fwwueN6TRhJ/M4Wu
-uoieqpCEqtq47niNVw8DpiwDMGTeU40GfHgL/L7M2qgFd+uSRyM7FmnkNarquvDD
-soB4PQ7/haN+v7wYUp1KzY0/z7frW+AKlfIIFGUBN6kXHr7pxLNaDidoH9dkYxJy
-U2H1udLB+mzLjk8ma7wwe3N5gqiQXJkuVandO4aRjX+CH7AFKc/j+Do/fCQ=
------END CERTIFICATE-----
-EOT
+  # Get it from your Kubernetes config file:
+  #   KUBE_HOST=$(kubectl config view --raw --minify --flatten --output='jsonpath={.clusters[].cluster.server}')
+  #
+  kubernetes_host = var.kubernetes_auth_host
+
+  # Get it from your Kubernetes config file:
+  #   KUBE_CA_CERT=$(kubectl config view --raw --minify --flatten --output='jsonpath={.clusters[].cluster.certificate-authority-data}' | base64 --decode)
+  #
+  kubernetes_ca_cert = var.kubernetes_auth_ca_cert
 
   # This is typically the token associated to the Kubernetes Service Account that is
   # created when installing Vault Injector and which has permissions on Kubernetes
-  # Token Review API
-  token_reviewer_jwt = data.vault_generic_secret.eks_devstg.data["token_reviewer_jwt"]
+  # Token Review API.
+  #
+  # Get it from your Kubernetes config file:
+  #   VAULT_HELM_SECRET_NAME=$(kubectl get secrets -n vault --output=json | jq -r '.items[].metadata | select(.name|startswith("vault-token-")).name')
+  #   TOKEN_REVIEW_JWT=$(kubectl get secret -n vault $VAULT_HELM_SECRET_NAME --output='go-template={{ .data.token }}' | base64 --decode)
+  #
+  token_reviewer_jwt = var.kubernetes_auth_token_reviewer_jwt
 }
 
 #
