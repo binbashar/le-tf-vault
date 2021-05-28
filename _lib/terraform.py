@@ -11,7 +11,10 @@ project = env.get("PROJECT", "")
 if project == "": raise Exception("Project is not set")
 
 # Enable MFA support?
-mfa_enabled = True if env.get("MFA_ENABLED", "false") else False
+mfa_enabled = True if env.get("MFA_ENABLED", "true").lower() == "true" else False
+
+# Use TTY
+use_tty = True if env.get("USE_TTY", "false").lower() == "true" else False
 
 # Set default entrypoint, use the mfa entrypoint if mfa is enabled
 docker_entrypoint = env.get("TERRAFORM_ENTRYPOINT", "/bin/terraform")
@@ -21,7 +24,22 @@ if mfa_enabled:
 # Set docker image, workdir, and other default arguments
 docker_image = "%s:%s" % (env.get("TERRAFORM_IMAGE_NAME"), env.get("TERRAFORM_IMAGE_TAG"))
 docker_workdir = "/go/src/project"
-docker_cmd = ["docker", "run", "--rm", "--workdir=%s" % docker_workdir, "-it"]
+docker_cmd = [
+    "docker",
+    "run",
+    "--security-opt=label:disable",
+    "--rm",
+    "--workdir=%s" % docker_workdir
+]
+
+# Instruct docker to use a TTY -- This might be useful when running this on
+# an automation tool such as Jenkins which doesn't provide pseudo terminal
+# by default
+if use_tty:
+    docker_cmd.append("--tty")
+else:
+    # Otherwise, by default, we assume the CLI is being run on a terminal
+    docker_cmd.append("-it")
 
 # Set docker volumes -- MFA uses additional volumes
 docker_volumes = [
@@ -61,63 +79,68 @@ terraform_default_args = [
 #
 # Helper to build the docker commands.
 #
-def _build_cmd(command="", args=[], entrypoint=docker_entrypoint):
+def _build_cmd(command="", args=[], entrypoint=docker_entrypoint, extra_args=[]):
+    # Start building the docker run command
     cmd = docker_cmd + docker_volumes + docker_envs
+
+    # Set the default entrypoint
     cmd.append("--entrypoint=%s" % entrypoint)
+
+    # Set the image to use
     cmd.append(docker_image)
     if command != "":
+        # Since MFA mode runs a different entrypoint, we also need to specify
+        # another binary to pass the execution to (in this case: helmsman)
         if mfa_enabled:
             cmd.append("--")
             cmd.append(env.get("TERRAFORM_ENTRYPOINT"))
 
+        # After the entrypoint has been figured out, append the helmsman command to run
         cmd.append(command)
 
+    # Append extra arguments if any were provided
+    if extra_args:
+        args = args + extra_args
+
+    # Finally append all the arguments to the docker command
     cmd = cmd + args
     print("[DEBUG] %s" % (" ".join(cmd)))
     return cmd
 
 def init(extra_args):
-    args = ["-backend-config=/config/backend.config"]
-    if extra_args:
-        args = args + extra_args
-
-    cmd = _build_cmd(command="init", args=args)
+    cmd = _build_cmd(
+        command="init",
+        args=["-backend-config=/config/backend.config"],
+        extra_args=extra_args
+    )
     return subprocess.call(cmd)
 
 def plan(extra_args):
-    args = terraform_default_args
-    if extra_args:
-        args = args + extra_args
-
-    cmd = _build_cmd(command="plan", args=args)
+    cmd = _build_cmd(command="plan", args=terraform_default_args, extra_args=extra_args)
     return subprocess.call(cmd)
 
 def apply(extra_args):
-    args = terraform_default_args
-    if extra_args:
-        args = args + extra_args
-
-    cmd = _build_cmd(command="apply", args=args)
+    cmd = _build_cmd(command="apply", args=terraform_default_args, extra_args=extra_args)
     return subprocess.call(cmd)
 
-def output():
-    cmd = _build_cmd(command="output")
+def output(extra_args):
+    cmd = _build_cmd(command="output", extra_args=extra_args)
     return subprocess.call(cmd)
 
 def destroy(extra_args):
-    args = terraform_default_args
-    if extra_args:
-        args = args + extra_args
-
-    cmd = _build_cmd(command="destroy", args=args)
+    cmd = _build_cmd(command="destroy", args=terraform_default_args, extra_args=extra_args)
     return subprocess.call(cmd)
 
 def version():
     cmd = _build_cmd(command="version")
     return subprocess.call(cmd)
 
-def shell():
-    cmd = _build_cmd(command="", entrypoint="/bin/sh")
+def shell(extra_args):
+    cmd = _build_cmd(command="", entrypoint="/bin/sh", extra_args=extra_args)
+    return subprocess.call(cmd)
+
+def state():
+    cmd = _build_cmd(command="", extra_args=["--", "/bin/sh"])
     return subprocess.call(cmd)
 
 def format_check():
