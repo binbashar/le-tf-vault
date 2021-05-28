@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v0.1.2"></a>
+## [v0.1.2] - 2021-05-28
+
+- Update security-kubernetes layer to make Kubernetes authentication data injectable through variables ([#10](https://github.com/binbashar/le-tf-vault/issues/10))
+
+
 <a name="v0.1.1"></a>
 ## [v0.1.1] - 2021-05-28
 
@@ -90,7 +96,8 @@ All notable changes to this project will be documented in this file.
 - BBL-262 | le-tf-vault initial commit
 
 
-[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.1.2...HEAD
+[v0.1.2]: https://github.com/binbashar/le-tf-vault/compare/v0.1.1...v0.1.2
 [v0.1.1]: https://github.com/binbashar/le-tf-vault/compare/v0.0.9...v0.1.1
 [v0.0.9]: https://github.com/binbashar/le-tf-vault/compare/v0.1.0...v0.0.9
 [v0.1.0]: https://github.com/binbashar/le-tf-vault/compare/v0.0.8...v0.1.0
