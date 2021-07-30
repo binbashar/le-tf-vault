@@ -7,6 +7,15 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v0.1.3"></a>
+## [v0.1.3] - 2021-07-30
+
+- [#154](https://github.com/binbashar/le-tf-vault/issues/154) | applying terraform canonical format
+- [#154](https://github.com/binbashar/le-tf-vault/issues/154) | upgrading circleci excecutor VM to ubu 20.04 with python3
+- [#154](https://github.com/binbashar/le-tf-vault/issues/154) | updating makefile to automate secrets get and put examples
+- [#154](https://github.com/binbashar/le-tf-vault/issues/154) | hcp base-settings and base-tf-backend layers minor updates
+
+
 <a name="v0.1.2"></a>
 ## [v0.1.2] - 2021-05-28
 
@@ -96,7 +105,8 @@ All notable changes to this project will be documented in this file.
 - BBL-262 | le-tf-vault initial commit
 
 
-[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.1.3...HEAD
+[v0.1.3]: https://github.com/binbashar/le-tf-vault/compare/v0.1.2...v0.1.3
 [v0.1.2]: https://github.com/binbashar/le-tf-vault/compare/v0.1.1...v0.1.2
 [v0.1.1]: https://github.com/binbashar/le-tf-vault/compare/v0.0.9...v0.1.1
 [v0.0.9]: https://github.com/binbashar/le-tf-vault/compare/v0.1.0...v0.0.9
