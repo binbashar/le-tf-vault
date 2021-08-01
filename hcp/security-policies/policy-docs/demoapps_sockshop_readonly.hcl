@@ -1,7 +1,7 @@
-path "secrets/metadata/demoapps/devstg/*" {
+path "secrets/metadata/demoapps/devstg/sock-shop" {
     capabilities = ["list", "read"]
 }
 
-path "secrets/data/demoapps/devstg/*" {
+path "secrets/data/demoapps/devstg/sock-shop" {
     capabilities = ["read"]
 }
