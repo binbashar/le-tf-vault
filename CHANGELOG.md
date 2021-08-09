@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v0.1.4"></a>
+## [v0.1.4] - 2021-08-09
+
+- Demoapps ([#12](https://github.com/binbashar/le-tf-vault/issues/12))
+
+
 <a name="v0.1.3"></a>
 ## [v0.1.3] - 2021-07-30
 
@@ -105,7 +111,8 @@ All notable changes to this project will be documented in this file.
 - BBL-262 | le-tf-vault initial commit
 
 
-[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.1.3...HEAD
+[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.1.4...HEAD
+[v0.1.4]: https://github.com/binbashar/le-tf-vault/compare/v0.1.3...v0.1.4
 [v0.1.3]: https://github.com/binbashar/le-tf-vault/compare/v0.1.2...v0.1.3
 [v0.1.2]: https://github.com/binbashar/le-tf-vault/compare/v0.1.1...v0.1.2
 [v0.1.1]: https://github.com/binbashar/le-tf-vault/compare/v0.0.9...v0.1.1
