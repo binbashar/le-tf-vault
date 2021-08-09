@@ -38,7 +38,7 @@ resource "vault_kubernetes_auth_backend_role" "eks_devstg_demoapps_sockshop_read
   backend                          = vault_auth_backend.kubernetes.path
   role_name                        = "demoapps_sockshop_readonly"
   bound_service_account_names      = ["*"]
-  bound_service_account_namespaces = ["default", "sock-shop"]
+  bound_service_account_namespaces = ["default", "demo-sock-shop"]
   token_ttl                        = 3600 * 6 # in seconds
   token_policies                   = ["demoapps_sockshop_readonly"]
 }
