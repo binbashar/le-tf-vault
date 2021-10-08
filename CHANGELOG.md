@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v0.1.5"></a>
+## [v0.1.5] - 2021-10-08
+
+- Create FUNDING.yml
+
+
 <a name="v0.1.4"></a>
 ## [v0.1.4] - 2021-08-09
 
@@ -111,7 +117,8 @@ All notable changes to this project will be documented in this file.
 - BBL-262 | le-tf-vault initial commit
 
 
-[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/binbashar/le-tf-vault/compare/v0.1.5...HEAD
+[v0.1.5]: https://github.com/binbashar/le-tf-vault/compare/v0.1.4...v0.1.5
 [v0.1.4]: https://github.com/binbashar/le-tf-vault/compare/v0.1.3...v0.1.4
 [v0.1.3]: https://github.com/binbashar/le-tf-vault/compare/v0.1.2...v0.1.3
 [v0.1.2]: https://github.com/binbashar/le-tf-vault/compare/v0.1.1...v0.1.2
