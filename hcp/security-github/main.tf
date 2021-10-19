@@ -20,5 +20,5 @@ resource "vault_github_team" "ref_architecture_admin" {
 resource "vault_github_team" "ref_architecture_dev" {
   backend  = vault_github_auth_backend.organization.id
   team     = "leverage-ref-architecture-aws-dev"
-  policies = ["devs"]
+  policies = ["devops"]
 }
